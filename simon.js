@@ -71,52 +71,61 @@ function mouseExited() {
 
 //user clicked pattern record
 function handlerUserClick() {
+
   $(".btn").click(function(event) {
     userChosenButton = event.target.id;
-
     userPattern.push(userChosenButton);
 
-    var id;
+    var index;
     switch (userChosenButton) {
       case "green":
-        id = 0;
+        index = 0;
         break;
       case "red":
-        id = 1;
+        index = 1;
         break;
       case "blue":
-        id = 2;
+        index = 2;
         break;
       case "yellow":
-        id = 3;
+        index = 3;
         break;
     }
-    randomButtonFlash(id);
+    buttonFlash(index);
+    buttonPressed(userChosenButton);
 
     console.log(userChosenButton);
     console.log(userPattern);
   });
+
 }
 
 //generate the random sequence for simon
 function patternGenerator() {
   var randomNumber = Math.floor(Math.random() * 4);
   randomChosenButton = btnList[randomNumber];
-  randomButtonFlash(randomNumber);
+  buttonFlash(randomNumber);
 
   simonPattern.push(randomChosenButton);
+
+  //random button flash base on generated number
+  $(randomChosenButton).fadeOut("fast").fadeIn("fast");
 
   console.log(randomChosenButton);
   console.log(simonPattern);
 }
 
-//button flash and play audio
-function randomButtonFlash(number) {
-  $(randomChosenButton).fadeOut("fast").fadeIn("fast");
+function buttonFlash(number) {
+  $(btnList[number]).fadeOut("fast").fadeIn("fast");
   btnAudios[number].play();
 }
 
+function buttonPressed(idName) {
+  $("#"+idName).addClass("pressed");
+  setTimeout(function() {
+    $("#"+idName).removeClass("pressed");
+  }, 300);
+}
 
 //testing purpose only
 $("#test-button").click(patternGenerator);
-// $("#test-button").click(randomButtonFlash);
