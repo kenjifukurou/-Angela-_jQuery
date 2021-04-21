@@ -14,7 +14,7 @@ var userChosenButton;
 
 var btnList = ["#green", "#red", "#blue", "#yellow"];
 // console.log(btnList[0]);
-var btnNumber;
+// var btnNumber;
 
 var greenAudio = new Audio("sounds/green.mp3");
 var redAudio = new Audio("sounds/red.mp3");
@@ -76,6 +76,23 @@ function handlerUserClick() {
 
     userPattern.push(userChosenButton);
 
+    var id;
+    switch (userChosenButton) {
+      case "green":
+        id = 0;
+        break;
+      case "red":
+        id = 1;
+        break;
+      case "blue":
+        id = 2;
+        break;
+      case "yellow":
+        id = 3;
+        break;
+    }
+    randomButtonFlash(id);
+
     console.log(userChosenButton);
     console.log(userPattern);
   });
@@ -85,7 +102,7 @@ function handlerUserClick() {
 function patternGenerator() {
   var randomNumber = Math.floor(Math.random() * 4);
   randomChosenButton = btnList[randomNumber];
-  btnNumber = randomNumber;
+  randomButtonFlash(randomNumber);
 
   simonPattern.push(randomChosenButton);
 
@@ -94,13 +111,12 @@ function patternGenerator() {
 }
 
 //button flash and play audio
-function randomButtonFlash() {
+function randomButtonFlash(number) {
   $(randomChosenButton).fadeOut("fast").fadeIn("fast");
-  btnAudios[btnNumber].play();
+  btnAudios[number].play();
 }
-
 
 
 //testing purpose only
 $("#test-button").click(patternGenerator);
-$("#test-button").click(randomButtonFlash);
+// $("#test-button").click(randomButtonFlash);
