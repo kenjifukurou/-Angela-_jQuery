@@ -1,0 +1,62 @@
+/* h1 {
+  Color: red; // css test pass
+} */
+body {
+  text-align: center;
+  background: #AAAAAA;
+}
+
+.game-title {
+  /* font-family: 'Zen Dots', cursive; */
+  font-family: 'Original Surfer', cursive;
+  font-size: 4em;
+  padding: 1em 5% 1em 5%;
+  /* margin-left: 10px; */
+  /* margin-right: 10px; */
+  /* background-color: red; */
+  border: 1px solid black;
+}
+
+.container {
+  padding: 0px 20px 0px 20px;
+  display: block;
+  width: 50%;
+  margin: auto;
+  background-color: rgba(255,0,0,0.1);
+  border: 1px solid black;
+}
+
+.row {
+  background-color: rgba(255, 255, 0, 0.1);
+}
+
+.btn {
+  margin: 25px;
+  height: 200px;
+  width: 200px;
+  display: inline-block;
+  border: 10px solid black;
+  border-radius: 20%;
+}
+
+.pressed {
+  box-shadow: 0 0 20px white;
+  background-color: grey;
+}
+
+.hovered {
+  transform: translateY(-5px);
+}
+
+.green {
+  background-color: green;
+}
+.red {
+  background-color: red;
+}
+.blue {
+  background-color: blue;
+}
+.yellow {
+  background-color: yellow;
+}
