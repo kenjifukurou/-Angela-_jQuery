@@ -8,7 +8,9 @@
 // });
 
 var simonPattern = [];
+var userPattern = [];
 var randomChosenButton;
+var userChosenButton;
 
 var btnList = ["#green", "#red", "#blue", "#yellow"];
 // console.log(btnList[0]);
@@ -30,6 +32,7 @@ var btnAudios = [greenAudio, redAudio, blueAudio, yellowAudio];
 mouseEntered();
 mouseExited();
 
+handlerUserClick();
 // patternGenerator();
 
 
@@ -39,22 +42,22 @@ mouseExited();
 
 function mouseEntered() {
   $(btnList[0]).mouseenter(function() {
-    console.log("mosue enter" + btnList[0]);
+    // console.log("mosue enter" + btnList[0]);
     $(this).addClass("hovered");
   });
 
   $(btnList[1]).mouseenter(function() {
-    console.log("mosue enter" + btnList[1]);
+    // console.log("mosue enter" + btnList[1]);
     $(this).addClass("hovered");
   });
 
   $(btnList[2]).mouseenter(function() {
-    console.log("mosue enter" + btnList[2]);
+    // console.log("mosue enter" + btnList[2]);
     $(this).addClass("hovered");
   });
 
   $(btnList[3]).mouseenter(function() {
-    console.log("mosue enter" + btnList[3]);
+    // console.log("mosue enter" + btnList[3]);
     $(this).addClass("hovered");
   });
 }
@@ -66,6 +69,18 @@ function mouseExited() {
 }
 
 
+//user clicked pattern record
+function handlerUserClick() {
+  $(".btn").click(function(event) {
+    userChosenButton = event.target.id;
+
+    userPattern.push(userChosenButton);
+
+    console.log(userChosenButton);
+    console.log(userPattern);
+  });
+}
+
 //generate the random sequence for simon
 function patternGenerator() {
   var randomNumber = Math.floor(Math.random() * 4);
@@ -74,7 +89,6 @@ function patternGenerator() {
 
   simonPattern.push(randomChosenButton);
 
-  console.log(randomNumber);
   console.log(randomChosenButton);
   console.log(simonPattern);
 }
