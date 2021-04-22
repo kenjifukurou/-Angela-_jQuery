@@ -7,6 +7,17 @@
 //   $(this).addClass("hovered");
 // });
 
+var array1 = ["a", "b", "c"];
+var array2 = ["a", "b", "c"];
+console.log(array1);
+console.log(array2);
+
+if (array1[2] === array2[2]) {
+  console.log("array content is same");
+} else {
+  console.log("false");
+}
+
 var simonPattern = [];
 var userPattern = [];
 var randomChosenButton;
@@ -58,7 +69,7 @@ function newGame() {
       if (!gameStarted) {
         console.log("game start now");
         gameStarted = true;
-        delayStartPatternGenerator();
+        patternGenerator();
         $(".game-title").text("Level " + level);
       } else {
         console.log("game already started");
